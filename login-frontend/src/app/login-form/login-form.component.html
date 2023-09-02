@@ -1,0 +1,56 @@
+<div class="row d-flex justify-content-center p-2">
+    <div class="col-4">
+
+        <ul class="nav nav-pills nav justified mb-3" id="ex-1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button [classList]="active=='login'? 'nav-link active':'nav-link'" id="tab-login"
+                    (click)="onLoginTab()">LogIn</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button [classList]="active=='register'? 'nav-link active':'nav-link'" id="tab-register"
+                    (click)="onRegisterTab()">Register</button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div [classList]="active=='login'? 'tab-pane fade show active':'tab-pane fade'">
+                <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="loginName">User Name :</label>
+                        <input class="form-control" type="text" id="loginName" name="login" [(ngModel)]="login">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="loginPassword">Password :</label>
+                        <input class="form-control" type="password" id="loginPassword" name="login"
+                            [(ngModel)]="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Sing in</button>
+                </form>
+            </div>
+
+            <div [classList]="active=='register'? 'tab-pane fade show active':'tab-pane fade'">
+                <form (ngSubmit)="onSubmitRegister()" #loginForm="ngForm">
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="firstName">First-Name :</label>
+                        <input class="form-control" type="text" id="firstName" name="firstName" [(ngModel)]="firstName">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="lastName">Last-Name :</label>
+                        <input class="form-control" type="text" id="lastName" name="lastName" [(ngModel)]="lastName">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="login">Uset Name :</label>
+                        <input class="form-control" type="text" id="login" name="login" [(ngModel)]="login">
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="password">Password :</label>
+                        <input class="form-control" type="password" id="password" name="password"
+                            [(ngModel)]="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
